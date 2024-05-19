@@ -1,0 +1,5 @@
+build
+*.jar
+*.md
+*.cmdpr
+dist
