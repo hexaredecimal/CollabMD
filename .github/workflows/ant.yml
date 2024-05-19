@@ -1,0 +1,22 @@
+name: Build NetBeans Project
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Java JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '17'
+
+    - name: Build NetBeans Project
+      run: |
+        sudo apt-get install ant
+        ant clean jar
